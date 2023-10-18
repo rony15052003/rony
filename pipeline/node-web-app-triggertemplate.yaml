@@ -172,14 +172,14 @@ spec:
 
 ---
 
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  name: el-node-web-app
-  namespace: node-web-project
-spec:
-  host: el-node-web-app.apps.roly-ocp43-cluster.roly-ocp.com
-  to:
-    kind: Service
-    name: el-node-web-app-el
-    weight: 100
+# apiVersion: route.openshift.io/v1
+# kind: Route
+# metadata:
+#   name: el-node-web-app
+#   namespace: node-web-project
+# spec:
+#   host: el-node-web-app.apps.roly-ocp43-cluster.roly-ocp.com
+#   to:
+#     kind: Service
+#     name: el-node-web-app-el
+#     weight: 100
