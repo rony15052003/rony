@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: node-web-app-pipeline-run-
+spec:
+  serviceAccountName: build-bot
+  pipelineRef:
+    name: node-web-app-pipeline
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
+  workspaces:
+  - name: shared-data
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+  - name: git-credentials
+    secret:
+      secretName: git-credentials
+  - name: nexus-credentials
+    secret:
+      secretName: docker-credentials-secret #nexus-credentials
+  params:
+  - name: repo-url
+    value: https://github.com/kriztobal/node-web-app.git # https://github.com/kriztobal/react-tekton-argo.git
+  - name: image-reference
+    value: becariodocker/react-app:1.0.1 # 192.168.162.161:8082/repository/project/test-app:1.0.1
