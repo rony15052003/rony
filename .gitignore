@@ -5,3 +5,4 @@ npm-debug.log
 02-github-secret.yaml
 03-serviceaccount.yaml
 04-nexus-cred-json.yaml
+05-service-account-binding.yaml

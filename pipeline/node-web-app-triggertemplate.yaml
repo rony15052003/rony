@@ -149,7 +149,7 @@ metadata:
 spec:
   triggers:
     - name: trigger
-      serviceAccountName: build-bot # pipeline # trigger-sa
+      #serviceAccountName: trigger-sa # pipeline
       interceptors:
         - github:
             eventTypes: ["pull_request"]
