@@ -178,7 +178,7 @@ metadata:
   name: el-node-web-app
   namespace: node-web-project
 spec:
-  host: el-node-web-app-el.node-web-project.svc.cluster.local:8080 # el-node-web-app.apps.roly-ocp43-cluster.roly-ocp.com
+  host: el-node-web-app-el.node-web-project.svc.cluster.local #:8080 # el-node-web-app.apps.roly-ocp43-cluster.roly-ocp.com
   to:
     kind: Service
     name: el-node-web-app-el
