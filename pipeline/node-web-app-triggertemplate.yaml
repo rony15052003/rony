@@ -150,9 +150,9 @@ spec:
   triggers:
     - name: trigger
       serviceAccountName: trigger-sa # pipeline
-      interceptors:
-        - github:
-            eventTypes: ["pull_request"]
+      # interceptors:
+      #   - github:
+      #       eventTypes: ["pull_request"]
       bindings:
         - ref: node-web-app-tb # pipeline-binding
       template:
