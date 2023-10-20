@@ -114,3 +114,5 @@ spec:
         - ref: node-web-app-tb # pipeline-binding
       template:
         ref: node-web-app-tt # pipeline-template
+
+# Comentario de prueba v1
