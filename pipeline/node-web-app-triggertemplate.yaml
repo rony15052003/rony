@@ -38,7 +38,7 @@ spec:
       - name: git-credentials
         secret:
           secretName: git-credentials
-      - name: nexus-credentials
+      - name: project-registry # nexus-credentials
         secret:
           secretName: project-registry #nexus-credentials
       params:
