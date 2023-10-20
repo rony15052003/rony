@@ -7,11 +7,11 @@ spec:
   - name: gitrevision
     description: The git revision
     default: main
-  - name: gitrepositoryurl
+  - name: gitrepositoryurl  # URL DE REPOSITORIO
     description: The git repository url
   # - name: message
   #   description: The message to print
-  #   default: This is the default message
+  #   default: Este es un mensaje *** D E F A U L T ****
   - name: contenttype
     description: The Content-Type of the event
   resourcetemplates:
@@ -43,7 +43,7 @@ spec:
           secretName: docker-credentials-secret #nexus-credentials
       params:
       - name: repo-url
-        value: https://github.com/kriztobal/node-web-app.git # https://github.com/kriztobal/react-tekton-argo.git
+        value: $(tt.params.gitrepositoryurl) # https://github.com/kriztobal/node-web-app.git # https://github.com/kriztobal/react-tekton-argo.git
       - name: image-reference
         value: becariodocker/react-app:1.0.1 # 192.168.162.161:8082/repository/project/test-app:1.0.1
 
@@ -120,25 +120,25 @@ spec:
 
 ---
 
-apiVersion: triggers.tekton.dev/v1beta1
-kind: Trigger
-metadata:
-  name: trigger
-spec:
-  interceptors:
-    - ref:
-        name: "cel"
-      params:
-        - name: "filter"
-          value: "header.match('X-GitHub-Event', 'pull_request')"
-        - name: "overlays"
-          value:
-            - key: extensions.truncated_sha
-              expression: "body.pull_request.head.sha.truncate(7)"
-  bindings:
-  - ref: node-web-app-tb # pipeline-binding
-  template:
-    ref: node-web-app-tt # pipeline-template
+# apiVersion: triggers.tekton.dev/v1beta1
+# kind: Trigger
+# metadata:
+#   name: trigger
+# spec:
+#   interceptors:
+#     - ref:
+#         name: "cel"
+#       params:
+#         - name: "filter"
+#           value: "header.match('X-GitHub-Event', 'pull_request')"
+#         - name: "overlays"
+#           value:
+#             - key: extensions.truncated_sha
+#               expression: "body.pull_request.head.sha.truncate(7)"
+#   bindings:
+#   - ref: node-web-app-tb # pipeline-binding
+#   template:
+#     ref: node-web-app-tt # pipeline-template
 
 ---
 
@@ -147,9 +147,9 @@ kind: EventListener
 metadata:
   name: node-web-app-el # eventlistener
 spec:
+  serviceAccountName: tekton-triggers-example-sa # trigger-sa # pipeline
   triggers:
     - name: trigger
-      serviceAccountName: trigger-sa # pipeline
       # interceptors:
       #   - github:
       #       eventTypes: ["pull_request"]
