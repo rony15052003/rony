@@ -193,7 +193,7 @@ metadata:
   namespace: node-web-project
 spec:
   rules:
-  - host: el-node-web-app-el.node-web-project.svc.cluster.local
+  - host: 65c3-187-189-84-209.ngrok-free.app # el-node-web-app-el.node-web-project.svc.cluster.local
     http:
       paths:
       - pathType: Prefix
