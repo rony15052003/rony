@@ -170,39 +170,39 @@ spec:
 #     template:
 #       name: node-web-app-tt
 
-# ---
+---
 
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: node-web-app-service-el
-#   namespace: node-web-project
-# spec:
-#   ports:
-#   - port: 80
-#     targetPort: 8080
-#   selector:
-#     app: node-web-app
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-web-app-service-el
+  namespace: node-web-project
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: node-web-app
 
-# ---
+---
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: my-ingress
-#   namespace: node-web-project
-# spec:
-#   rules:
-#   - host: el-node-web-app-el.node-web-project.svc.cluster.local #65c3-187-189-84-209.ngrok-free.app #
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: /
-#         backend:
-#           service:
-#             name: node-web-app-service-el
-#             port:
-#               number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: node-web-project
+spec:
+  rules:
+  - host: el-node-web-app-el.node-web-project.svc.cluster.local #65c3-187-189-84-209.ngrok-free.app #
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: node-web-app-service-el
+            port:
+              number: 80
 
 # apiVersion: route.openshift.io/v1
 # kind: Route
