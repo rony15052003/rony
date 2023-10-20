@@ -38,9 +38,9 @@ spec:
       - name: git-credentials
         secret:
           secretName: git-credentials
-      - name: project-registry # nexus-credentials
+      - name: nexus-credentials
         secret:
-          secretName: project-registry #nexus-credentials
+          secretName: nexus-credentials
       params:
       - name: repo-url
         value: https://github.com/kriztobal/node-web-app.git # $(tt.params.gitrepositoryurl) # https://github.com/kriztobal/react-tekton-argo.git
