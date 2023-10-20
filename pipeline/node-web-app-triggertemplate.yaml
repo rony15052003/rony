@@ -38,7 +38,7 @@ spec:
       - name: git-credentials
         secret:
           secretName: git-credentials
-      - name: nexus-credentials
+      - name: docker-credentials # nexus-credentials
         secret:
           secretName: docker-credentials-secret #nexus-credentials
       params:
