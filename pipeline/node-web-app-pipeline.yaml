@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: node-web-app-pipeline
-  namespace: node-web-project
+  # namespace: node-web-project
 spec:
   params: #resource:
     - name: repo-url #node-web-app-source
