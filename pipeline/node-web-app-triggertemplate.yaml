@@ -115,4 +115,4 @@ spec:
       template:
         ref: node-web-app-tt # pipeline-template
 
-# Comentario de prueba v1
+# Comentario de prueba v2
