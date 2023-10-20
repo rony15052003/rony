@@ -13,7 +13,7 @@ spec:
   workspaces:
   - name: shared-data
     description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
-  - name: project-registry #nexus-credentials
+  - name: nexus-credentials
     description: Espacio de trabajo de mis credenciales de Docker en Nexus. 
   - name: git-credentials
     description: Espacio de trabajo de mis credenciales de Github. 
@@ -38,7 +38,7 @@ spec:
     - name: source
       workspace: shared-data 
     - name: dockerconfig 
-      workspace: project-registry # nexus-credentials
+      workspace: nexus-credentials
     params:   
     - name: IMAGE 
       value: $(params.image-reference)      
