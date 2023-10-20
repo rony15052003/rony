@@ -38,14 +38,14 @@ spec:
       - name: git-credentials
         secret:
           secretName: git-credentials
-      - name: docker-credentials # nexus-credentials
+      - name: project-registry #nexus-credentials
         secret:
-          secretName: docker-credentials-secret #nexus-credentials
+          secretName: project-registry #nexus-credentials
       params:
       - name: repo-url
         value: https://github.com/kriztobal/node-web-app.git # $(tt.params.gitrepositoryurl) # https://github.com/kriztobal/react-tekton-argo.git
       - name: image-reference
-        value: becariodocker/react-app:1.0.1 # 192.168.162.161:8082/repository/project/test-app:1.0.1
+        value: 192.168.162.161:8082/repository/project/test-app:1.0.2 # becariodocker/react-app:1.0.1
 
 --- 
 
