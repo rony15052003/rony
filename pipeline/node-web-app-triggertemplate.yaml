@@ -9,9 +9,6 @@ spec:
     default: main
   - name: gitrepositoryurl  # URL DE REPOSITORIO
     description: The git repository url
-  # - name: message
-  #   description: The message to print
-  #   default: Este es un mensaje *** D E F A U L T ****
   - name: contenttype
     description: The Content-Type of the event
   resourcetemplates:
