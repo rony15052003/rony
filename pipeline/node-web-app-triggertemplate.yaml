@@ -42,8 +42,8 @@ spec:
       - name: repo-url
         value: https://github.com/kriztobal/node-web-app.git # https://github.com/kriztobal/react-tekton-argo.git
       - name: image-reference
-        value: 192.168.162.161:8082/repository/project/test-app:1.0.5
-# Comentario de prueba con tag 1.0.5
+        value: 192.168.162.161:8082/repository/project/test-app:1.0.6
+# Comentario de prueba MAIN con tag 1.0.6
 --- 
 
 apiVersion: triggers.tekton.dev/v1beta1
