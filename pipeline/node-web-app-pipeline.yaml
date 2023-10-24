@@ -44,10 +44,8 @@ spec:
           script: |
             echo "Tu usuario es: $username"
             echo "Tu password es: $password"
-            echo "Tu IP y puerto es: $ip\:$puerto"
-            # IP_PORT=$($ip:$puerto)
-            # echo $IP_PORT
-            curl -u $username:'$password' -X GET http://$ip$puerto/service/rest/v1/search/?repository=project # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
+            echo Tu IP y puerto es: $ip:$puerto
+            curl -u $username:$password -X GET http://$ip$puerto/service/rest/v1/search/?repository=project # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
             # echo $TAG_LATEST
           env:
             - name: username   # SECRET 1
