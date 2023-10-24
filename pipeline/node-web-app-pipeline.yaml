@@ -42,10 +42,10 @@ spec:
         - name: obtener-tag
           image: centos # imagen con CURL
           script: |
-            echo "* * * * * TEST con $username - - - - ->"
-            echo "Tu password es $password"
-            echo "Tu IP es $ip"
-            curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
+            echo "Tu usuario es: $username"
+            echo "Tu password e:s $password"
+            echo "Tu IP es: $ip"
+            curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
             # echo $TAG_LATEST
           env:
             - name: username   # SECRET 1
