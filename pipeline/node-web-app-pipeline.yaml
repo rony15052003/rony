@@ -30,7 +30,7 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
-  - name: get-tag          ##### TASK 2 GET TAG
+  - name: get-tag          ##### TASK 2 GET TAG     # CAMBIO DE PRUEBA
     runAfter: ["fetch-source"]
     taskSpec:
       steps:
