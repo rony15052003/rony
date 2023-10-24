@@ -10,8 +10,8 @@ spec:
       description: La URL desde donde se va a clonar
     - name: image-reference #node-web-app-image
       type: string #image
-    - name: gitrepositoryurl  
-      type: string
+    # - name: gitrepositoryurl  
+    #   type: string
   workspaces:
   - name: shared-data
     description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
