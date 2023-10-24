@@ -8,3 +8,5 @@ npm-debug.log
 05-service-account-binding.yaml
 06-triggers-rbac.yaml
 # pipeline/node-web-app-pipeline.yaml
+07-latest-tag.txt
+08-items.json

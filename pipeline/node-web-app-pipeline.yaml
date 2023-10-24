@@ -30,8 +30,16 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
-  - name: build-push          ##### TASK 2 BUILD AND PUSH
+  - name: get-tag          ##### TASK 2 GET TAG
     runAfter: ["fetch-source"]
+    taskSpec:
+      steps:
+        - name: obtener-tag
+          image: ubuntu
+          script: |
+            echo "* * * * * TEST - - - - ->"
+  - name: build-push          ##### TASK 3 BUILD AND PUSH
+    runAfter: ["get-tag"]
     taskRef:
       name: kaniko
     workspaces:
