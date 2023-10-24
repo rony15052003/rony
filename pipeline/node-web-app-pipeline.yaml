@@ -47,7 +47,7 @@ spec:
             echo "Tu IP y puerto es: $ip$puerto"
             # IP_PORT=$($ip:$puerto)
             # echo $IP_PORT
-            curl -u $username:'$password' -X GET 'http://$ip$puerto/service/rest/v1/search/?repository=project' # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
+            curl -u $username:'$password' -X GET http://$ip$puerto/service/rest/v1/search/?repository=project # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
             # echo $TAG_LATEST
           env:
             - name: username   # SECRET 1
