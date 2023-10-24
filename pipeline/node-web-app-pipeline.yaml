@@ -42,7 +42,7 @@ spec:
         - name: obtener-tag
           image: centos # imagen con CURL comment1
           script: |
-            TAG_LATEST=$(curl -u $username:$password -X GET "http://$ip/service/rest/v1/search/?repository=project" | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
+            TAG_LATEST=$(curl -u $username:$password -X GET "http://$ip/service/rest/v1/search/?repository=project" | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}')
             echo $TAG_LATEST
           env:
             - name: username   # SECRET 1
