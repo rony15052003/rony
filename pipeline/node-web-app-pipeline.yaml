@@ -42,7 +42,7 @@ spec:
         - name: obtener-tag
           image: centos # imagen con CURL
           script: |
-            echo "* * * * * TEST con $username - - - - ->"
+            echo "* * * * * TEST con $username, su IP es $ip - - - - ->"
             TAG_LATEST=$(curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}')
             echo $TAG_LATEST
           env:
@@ -59,7 +59,7 @@ spec:
             - name: ip          # SECRET 2
               valueFrom:
                 secretKeyRef:
-                  name: secret-tag
+                  name: secret-ip
                   key: password                  
   - name: build-push          ##### TASK 3 BUILD AND PUSH
     runAfter: ["get-tag"]
