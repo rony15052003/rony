@@ -6,7 +6,7 @@ metadata:
 spec:
   params: #resource:
     - name: repo-url #node-web-app-source
-      #type: string #git
+      type: string #git
       description: La URL desde donde se va a clonar
     - name: image-reference #node-web-app-image
       type: string #image
