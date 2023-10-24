@@ -39,9 +39,9 @@ spec:
       workspace: shared-data 
     - name: dockerconfig 
       workspace: nexus-credentials
-    params:   
-    - name: gitrepositoryurl
-      value: $(params.gitrepositoryurl)        
+    # params:   
+    # - name: gitrepositoryurl
+    #   value: $(params.gitrepositoryurl)        
     taskSpec:
       steps:
         - name: obtener-tag
@@ -52,8 +52,8 @@ spec:
             echo " * * * * * "
             ((TAG_LATEST+=1))
             echo $TAG_LATEST
-            echo "* * * * * * * * * * * *"
-            echo $(gitrepositoryurl)
+            # echo "* * * * * * * * * * * *"
+            # echo $(gitrepositoryurl)
           env:
             - name: username   # SECRET 1
               valueFrom:
