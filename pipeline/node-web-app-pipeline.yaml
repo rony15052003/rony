@@ -19,19 +19,19 @@ spec:
     description: Espacio de trabajo de mis credenciales de Github. 
   
   tasks:
-  - name: fetch-source        ##### TASK 1 CLONAR CÓDIGO FUENTE DE GITHUB
-    taskRef:
-      name: git-clone
-    workspaces:
-    - name: output
-      workspace: shared-data
-    - name: ssh-directory
-      workspace: git-credentials
-    params:
-    - name: url
-      value: $(params.repo-url)
+  # - name: fetch-source        ##### TASK 1 CLONAR CÓDIGO FUENTE DE GITHUB
+  #   taskRef:
+  #     name: git-clone
+  #   workspaces:
+  #   - name: output
+  #     workspace: shared-data
+  #   - name: ssh-directory
+  #     workspace: git-credentials
+  #   params:
+  #   - name: url
+  #     value: $(params.repo-url)
   - name: get-tag          ##### TASK 2 GET TAG     # CAMBIO DE PRUEBA 2
-    runAfter: ["fetch-source"]
+    # runAfter: ["fetch-source"]
     workspaces:
     - name: source
       workspace: shared-data 
@@ -44,7 +44,7 @@ spec:
           script: |
             echo "Tu usuario es: $username"
             echo "Tu password es: $password"
-            echo "Tu IP y puerto es: $ip$puerto"
+            echo "Tu IP y puerto es: $ip\:$puerto"
             # IP_PORT=$($ip:$puerto)
             # echo $IP_PORT
             curl -u $username:'$password' -X GET http://$ip$puerto/service/rest/v1/search/?repository=project # | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
