@@ -43,8 +43,8 @@ spec:
           image: centos # imagen con CURL
           script: |
             echo "* * * * * TEST con $username, su IP es $ip - - - - ->"
-            TAG_LATEST=$(curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}')
-            echo $TAG_LATEST
+            curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}'
+            # echo $TAG_LATEST
           env:
             - name: username   # SECRET 1
               valueFrom:
