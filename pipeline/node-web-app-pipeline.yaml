@@ -32,12 +32,35 @@ spec:
       value: $(params.repo-url)
   - name: get-tag          ##### TASK 2 GET TAG     # CAMBIO DE PRUEBA
     runAfter: ["fetch-source"]
+    workspaces:
+    - name: source
+      workspace: shared-data 
+    - name: dockerconfig 
+      workspace: nexus-credentials    
     taskSpec:
       steps:
         - name: obtener-tag
           image: ubuntu
           script: |
             echo "* * * * * TEST - - - - ->"
+            TAG_LATEST=$(curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}')
+            echo $TAG_LATEST
+          env:
+            - name: username   # SECRET 1
+              valueFrom:
+                secretKeyRef:
+                  name: secret-tag
+                  key: username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: secret-tag
+                  key: password
+            - name: ip          # SECRET 2
+              valueFrom:
+                secretKeyRef:
+                  name: secret-tag
+                  key: password                  
   - name: build-push          ##### TASK 3 BUILD AND PUSH
     runAfter: ["get-tag"]
     taskRef:

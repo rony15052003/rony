@@ -10,3 +10,5 @@ npm-debug.log
 # pipeline/node-web-app-pipeline.yaml
 07-latest-tag.txt
 08-items.json
+09-secret-tag.yaml
+10-secret-ip.yaml
