@@ -40,7 +40,7 @@ spec:
     taskSpec:
       steps:
         - name: obtener-tag
-          image: centos # imagen con CURL
+          image: centos # imagen con CURL comment1
           script: |
             echo "Tu usuario es: $username"
             echo "Tu password es: $password"
