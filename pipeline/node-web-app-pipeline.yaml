@@ -70,15 +70,15 @@ spec:
                 secretKeyRef:
                   name: secret-ip
                   key: password
-  # - name: build-push          ##### TASK 3 BUILD AND PUSH
-  #   runAfter: ["get-tag"]
-  #   taskRef:
-  #     name: kaniko
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-data 
-  #   - name: dockerconfig 
-  #     workspace: nexus-credentials
-  #   params:   
-  #   - name: IMAGE 
-  #     value: $(params.image-reference)      
+  - name: build-push          ##### TASK 3 BUILD AND PUSH
+    runAfter: ["get-tag"]
+    taskRef:
+      name: kaniko
+    workspaces:
+    - name: source
+      workspace: shared-data 
+    - name: dockerconfig 
+      workspace: nexus-credentials
+    params:   
+    - name: IMAGE 
+      value: $(params.image-reference)      
