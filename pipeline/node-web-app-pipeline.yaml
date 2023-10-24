@@ -40,7 +40,7 @@ spec:
     taskSpec:
       steps:
         - name: obtener-tag
-          image: centos
+          image: centos # imagen con CURL
           script: |
             echo "* * * * * TEST con $username - - - - ->"
             TAG_LATEST=$(curl -u $username:$password -X GET 'http://$ip/service/rest/v1/search/?repository=project' | grep version | tail -n 1 | awk -F'[^0-9]+'  '{print $4}')
