@@ -10,8 +10,6 @@ spec:
       description: La URL desde donde se va a clonar
     - name: image-reference #node-web-app-image
       type: string #image
-    # - name: gitrepositoryurl  
-    #   type: string
   workspaces:
   - name: shared-data
     description: Este espacio de trabajo contiene los archivos de repositorio clonados, por lo que pueden ser leídos por la siguiente tarea.
@@ -38,10 +36,7 @@ spec:
     - name: source
       workspace: shared-data 
     - name: dockerconfig 
-      workspace: nexus-credentials
-    # params:   
-    # - name: gitrepositoryurl
-    #   value: $(params.gitrepositoryurl)        
+      workspace: nexus-credentials  
     taskSpec:
       steps:
         - name: obtener-tag
@@ -52,8 +47,6 @@ spec:
             echo " * * * * * "
             ((TAG_LATEST+=1))
             echo $TAG_LATEST
-            # echo "* * * * * * * * * * * *"
-            # echo $(gitrepositoryurl)
           env:
             - name: username   # SECRET 1
               valueFrom:
